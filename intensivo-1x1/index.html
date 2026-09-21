@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intensivo 1X1 — Mariana Manfredinny</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WJ99QGK8');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+        url('DSC08592 (1).jpg') center center / cover fixed no-repeat;
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── LIQUID GLASS MIXIN (aplicado via classes) ── */
+    .glass-strong {
+      background: rgba(12,12,12,0.55);
+      backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      box-shadow:
+        0 24px 64px rgba(0,0,0,0.5),
+        0 2px 8px rgba(0,0,0,0.3),
+        inset 0 1.5px 0 rgba(255,255,255,0.1),
+        inset 0 -0.5px 0 rgba(0,0,0,0.2);
+    }
+
+    .glass-mid {
+      background: rgba(18,18,18,0.5);
+      backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      -webkit-backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -0.5px 0 rgba(0,0,0,0.15);
+    }
+
+    .glass-light {
+      background: rgba(18,18,18,0.45);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    /* ── MENU BAR ── */
+    .menubar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 28px;
+      background: rgba(10,10,10,0.75);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 18px;
+      z-index: 100;
+    }
+
+    .menubar-logo { font-size: 15px; line-height: 1; }
+
+    .menubar-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.1px;
+    }
+
+    .menubar-items {
+      display: flex;
+      gap: 18px;
+      flex: 1;
+    }
+
+    .menubar-items span {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      cursor: default;
+    }
+
+    .menubar-items span.active { color: #fff; font-weight: 600; }
+
+    .menubar-items span.menu-restart {
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .menubar-items span.menu-restart:hover { opacity: 0.7; }
+
+    .menubar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .menubar-right span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 52px 16px 40px;
+      min-height: 100vh;
+    }
+
+    /* ── WINDOW ── */
+    .window {
+      width: 100%;
+      max-width: 660px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ── TITLEBAR ── */
+    .titlebar {
+      height: 44px;
+      background: rgba(8,8,8,0.65);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      flex-shrink: 0;
+    }
+
+    .traffic-lights { display: flex; gap: 7px; align-items: center; }
+
+    .tl {
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      border: 0.5px solid rgba(0,0,0,0.15);
+    }
+
+    .tl-red    { background: #FF5F57; }
+    .tl-yellow { background: #FFBD2E; }
+    .tl-green  { background: #28C840; }
+
+    .titlebar-title {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: -0.1px;
+    }
+
+    .titlebar-spacer { width: 52px; }
+
+    /* ── WINDOW BODY ── */
+    .window-body { padding: 32px 36px 36px; }
+
+    /* ── HEADER ── */
+    .win-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 10px;
+    }
+
+    .win-headline {
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .win-sub {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── PROGRESS ── */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .progress-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .progress-pct {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .progress-track {
+      height: 2px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #fff;
+      border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+
+    /* ── STEPS ── */
+    .step { display: none; }
+    .step.active { display: block; animation: fadeUp 0.28s ease; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes notifDrop {
+      0%   { opacity: 0; transform: translateY(-28px) scale(0.94); }
+      55%  { opacity: 1; transform: translateY(4px) scale(1.01); }
+      75%  { transform: translateY(-2px) scale(0.995); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .notif-animate {
+      animation: notifDrop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    .step-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .step-question {
+      font-size: clamp(20px, 3.8vw, 24px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .step-hint {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    /* ── OPTIONS — Liquid Glass Cards ── */
+    .options { display: flex; flex-direction: column; gap: 8px; }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 400;
+      color: rgba(255,255,255,0.88);
+      font-size: 16px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(30px) saturate(140%);
+      -webkit-backdrop-filter: blur(30px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .opt:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    .opt.selected {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    .opt-indicator {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s;
+    }
+
+    .opt.selected .opt-indicator {
+      border-color: #fff;
+      background: #fff;
+    }
+
+    .opt.selected .opt-indicator::after {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    /* ── INPUTS — Liquid Glass ── */
+    .fields { display: flex; flex-direction: column; gap: 14px; }
+    .field  { display: flex; flex-direction: column; gap: 5px; }
+
+    .field label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 4px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+      width: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.11);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 3px rgba(255,255,255,0.08);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+    .field select { cursor: pointer; }
+    .field select option { background: #1a1a1a; color: #fff; }
+
+    .field textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+
+    /* ── ERROR ── */
+    .err {
+      font-size: 11px;
+      font-weight: 500;
+      color: #FF5F57;
+      margin-top: 4px;
+      display: none;
+    }
+    .err.on { display: block; }
+
+    /* ── HAIRLINE ── */
+    .hairline {
+      height: 0.5px;
+      background: rgba(255,255,255,0.08);
+      margin: 20px 0;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .btn-back {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.15);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      padding: 0 18px;
+      height: 42px;
+      cursor: pointer;
+      transition: all 0.18s;
+      flex-shrink: 0;
+    }
+
+    .btn-back:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+    .btn-next {
+      flex: 1;
+      height: 42px;
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      color: #0a0a0a;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.18s;
+      letter-spacing: -0.1px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .btn-next:hover { background: rgba(255,255,255,0.9); box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+    .btn-next:active { background: rgba(255,255,255,0.8); }
+
+    /* ── SPOTLIGHT — Liquid Glass ── */
+    .spotlight {
+      background: rgba(15,15,15,0.6);
+      backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1.5px 0 rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .spotlight-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .spotlight-icon { font-size: 16px; opacity: 0.45; }
+
+    .spotlight-query {
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: -0.2px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    /* ── NOTIFICATION BANNER — Liquid Glass ── */
+    .notif {
+      background: rgba(18,18,18,0.65);
+      backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      -webkit-backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 13px 15px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .notif-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: #4A6670;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .notif-content { flex: 1; }
+
+    .notif-app {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2px;
+    }
+
+    .notif-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .notif-body {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    .notif-time {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+    }
+
+    /* ── END SCREENS ── */
+    .screen { display: none; }
+    .screen.active { display: block; animation: fadeUp 0.3s ease; }
+
+    .screen-body {
+      padding: 40px 36px;
+      text-align: center;
+    }
+
+    .screen-title {
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .screen-text {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.55);
+      max-width: 400px;
+      margin: 0 auto 24px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 0.5px solid rgba(255,255,255,0.2);
+      border-radius: 40px;
+      padding: 10px 22px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .dot-green {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #28C840;
+      flex-shrink: 0;
+    }
+
+    /* ── CAPTION ── */
+    .caption {
+      text-align: center;
+      padding: 14px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── VAGAS BADGE (pisca como notificação iPhone) ── */
+    .vagas-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,59,48,0.12);
+      border: 0.5px solid rgba(255,59,48,0.3);
+      border-radius: 40px;
+      padding: 2px 8px 2px 5px;
+      cursor: default;
+      animation: vagasPulse 2s ease-in-out infinite;
+    }
+
+    .vagas-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #FF3B30;
+      animation: vagasDot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .vagas-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: #FF3B30;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    @keyframes vagasDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.3; transform: scale(0.75); }
+    }
+
+    @keyframes vagasPulse {
+      0%, 100% { background: rgba(255,59,48,0.12); border-color: rgba(255,59,48,0.3); }
+      50%       { background: rgba(255,59,48,0.06); border-color: rgba(255,59,48,0.15); }
+    }
+
+    /* ── iOS STATUS BAR (mobile only) ── */
+    .ios-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      z-index: 200;
+      padding: 12px 24px 0;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ios-time {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+      min-width: 44px;
+    }
+
+    .ios-island {
+      width: 120px; height: 32px;
+      background: #000;
+      border-radius: 20px;
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 10px;
+    }
+
+    .ios-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ios-signal {
+      display: flex; gap: 2px; align-items: flex-end;
+    }
+    .ios-signal span {
+      background: #fff;
+      border-radius: 1px;
+      width: 3px;
+    }
+    .ios-signal span:nth-child(1) { height: 4px; }
+    .ios-signal span:nth-child(2) { height: 7px; }
+    .ios-signal span:nth-child(3) { height: 10px; }
+    .ios-signal span:nth-child(4) { height: 13px; }
+
+    .ios-wifi {
+      font-size: 13px; color: #fff; line-height: 1;
+    }
+
+    .ios-battery {
+      display: flex; align-items: center; gap: 1px;
+    }
+    .ios-battery-body {
+      width: 24px; height: 12px;
+      border: 1.5px solid rgba(255,255,255,0.85);
+      border-radius: 3px;
+      padding: 1.5px;
+      position: relative;
+    }
+    .ios-battery-fill {
+      height: 100%; width: 80%;
+      background: #fff;
+      border-radius: 1px;
+    }
+    .ios-battery-cap {
+      width: 2px; height: 5px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 0 1px 1px 0;
+      margin-left: 1px;
+    }
+
+    /* ── DESKTOP font tweaks (ligeiramente maiores) ── */
+    .win-sub        { font-size: 15px; }
+    .step-question  { font-size: clamp(19px, 3.5vw, 22px); }
+    .step-hint      { font-size: 14px; }
+    .opt            { font-size: 15px; }
+    .field label    { font-size: 12px; }
+    .field input,
+    .field textarea,
+    .field select   { font-size: 15px; }
+
+    /* ── MOBILE — experiência iOS nativa ── */
+    @media (max-width: 768px) {
+
+      body {
+        background:
+          linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+          url('DSC08592 (1).jpg') center center / cover fixed no-repeat;
+        color: #fff;
+      }
+
+      .menubar { display: none; }
+      .ios-bar { display: flex; }
+
+      .titlebar { display: none; }
+
+      .page {
+        padding: 58px 14px 40px;
+        align-items: flex-start;
+      }
+
+      .vagas-float-mobile {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+
+      .window {
+        border-radius: 26px !important;
+        background: rgba(255,255,255,0.11) !important;
+        backdrop-filter: blur(70px) saturate(220%) brightness(1.12) !important;
+        -webkit-backdrop-filter: blur(70px) saturate(220%) brightness(1.12) !important;
+        border: 0.5px solid rgba(255,255,255,0.22) !important;
+        box-shadow:
+          0 32px 80px rgba(0,0,0,0.55),
+          0 4px 16px rgba(0,0,0,0.3),
+          inset 0 1.5px 0 rgba(255,255,255,0.28),
+          inset 0 -1px 0 rgba(255,255,255,0.06) !important;
+      }
+
+      .window-body { padding: 28px 22px 36px; }
+      .screen-body { padding: 36px 22px; }
+
+      .win-header { border-bottom-color: rgba(255,255,255,0.1); margin-bottom: 24px; }
+      .section-label { color: rgba(255,255,255,0.45); }
+      .win-headline { color: #fff; font-size: 28px; margin-bottom: 12px; }
+      .win-sub { color: rgba(255,255,255,0.65); font-size: 15px; }
+
+      .progress-tag { color: rgba(255,255,255,0.38); }
+      .progress-pct { color: rgba(255,255,255,0.7); }
+      .progress-track { background: rgba(255,255,255,0.1); }
+      .progress-fill { background: rgba(255,255,255,0.6); }
+
+      .step-label    { color: rgba(255,255,255,0.4); font-size: 11px; }
+      .step-question { color: #fff; font-size: 20px; }
+      .step-hint     { color: rgba(255,255,255,0.48); font-size: 14px; }
+
+      .opt {
+        background: rgba(255,255,255,0.09);
+        border: 0.5px solid rgba(255,255,255,0.18);
+        color: rgba(255,255,255,0.88);
+        font-size: 15px;
+        padding: 15px 16px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+        border-radius: 14px;
+      }
+      .opt:hover {
+        background: rgba(255,255,255,0.16);
+        border-color: rgba(255,255,255,0.32);
+        transform: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+      }
+      .opt.selected {
+        background: rgba(107,133,144,0.35);
+        border-color: rgba(180,200,210,0.6);
+        color: #fff;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+      }
+      .opt-indicator { border-color: rgba(255,255,255,0.28); }
+      .opt.selected .opt-indicator { background: rgba(180,200,210,0.8); border-color: transparent; }
+
+      .field label { color: rgba(255,255,255,0.42); font-size: 11px; }
+      .field input,
+      .field textarea,
+      .field select {
+        background: rgba(255,255,255,0.09);
+        border: 0.5px solid rgba(255,255,255,0.18);
+        color: #fff;
+        font-size: 16px;
+        padding: 14px 16px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        border-radius: 14px;
+      }
+      .field input::placeholder,
+      .field textarea::placeholder { color: rgba(255,255,255,0.28); }
+      .field input:focus,
+      .field textarea:focus,
+      .field select:focus {
+        border-color: rgba(180,200,210,0.7);
+        background: rgba(255,255,255,0.14);
+        box-shadow: 0 0 0 3px rgba(107,133,144,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+      }
+      .field select option { background: #091a32; color: #fff; }
+
+      .hairline { background: rgba(255,255,255,0.1); }
+
+      .nav { border-top-color: rgba(255,255,255,0.08); gap: 12px; }
+      .btn-next {
+        height: 54px;
+        font-size: 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.9);
+        color: #0a1e35;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 #fff;
+      }
+      .btn-next:hover { background: #fff; }
+      .btn-back {
+        height: 54px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.1);
+        border: 0.5px solid rgba(255,255,255,0.2);
+        color: rgba(255,255,255,0.6);
+        box-shadow: none;
+        padding: 0 20px;
+      }
+      .btn-back:hover { background: rgba(255,255,255,0.18); color: #fff; }
+
+      .spotlight {
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.14);
+      }
+      .spotlight-search { border-bottom-color: rgba(255,255,255,0.1); }
+      .spotlight-query  { color: rgba(255,255,255,0.85); font-size: 16px; }
+      .spotlight-icon   { opacity: 0.5; }
+
+      .notif {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.14);
+      }
+      .notif-app   { color: rgba(255,255,255,0.38); }
+      .notif-title { color: #fff; }
+      .notif-body  { color: rgba(255,255,255,0.55); }
+      .notif-time  { color: rgba(255,255,255,0.3); }
+
+      .screen-title { color: #fff; font-size: 26px; }
+      .screen-text  { color: rgba(255,255,255,0.6); font-size: 15px; }
+
+      .badge-pill {
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.22);
+        color: #fff;
+        box-shadow: none;
+      }
+
+      .err { font-size: 12px; }
+
+      .caption { color: rgba(255,255,255,0.28); font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ99QGK8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- iOS STATUS BAR (mobile only) -->
+  <div class="ios-bar" id="ios-bar">
+    <span class="ios-time" id="ios-time">9:41</span>
+    <div class="ios-island"></div>
+    <div class="ios-icons">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="7" width="3" height="5" rx="1"/>
+        <rect x="4.5" y="5" width="3" height="7" rx="1"/>
+        <rect x="9" y="2.5" width="3" height="9.5" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1"/>
+      </svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="white"/>
+        <path d="M3.5 6.5a6.5 6.5 0 0 1 9 0" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M1 3.8A10.5 10.5 0 0 1 15 3.8" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/>
+        <rect x="2" y="2" width="17" height="8" rx="2" fill="white"/>
+        <path d="M23 4v4a2 2 0 0 0 0-4z" fill="white" fill-opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- MENU BAR -->
+  <div class="menubar">
+    <span class="menubar-logo">🍎</span>
+    <span class="menubar-brand">Mariana Manfredinny</span>
+    <div class="menubar-items">
+      <span>Arquivo</span>
+      <span>Editar</span>
+      <span>Visualizar</span>
+      <span class="active">Intensivo 1X1</span>
+      <span>Ajuda</span>
+      <span class="menu-restart" onclick="restart()" title="Voltar ao início e responder novamente">↩ Início</span>
+    </div>
+    <div class="menubar-right">
+      <div class="vagas-badge">
+        <div class="vagas-dot"></div>
+        <span class="vagas-text">vagas limitadas por semana</span>
+      </div>
+      <span>🔋 99%</span>
+      <span>Dom 10:41</span>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div style="width:100%;max-width:660px;">
+
+      <!-- VAGAS BADGE (mobile only) -->
+      <div class="vagas-float-mobile">
+        <div class="vagas-badge">
+          <div class="vagas-dot"></div>
+          <span class="vagas-text">vagas limitadas por semana</span>
+        </div>
+      </div>
+
+      <!-- WINDOW -->
+      <div class="window glass-strong" id="main-window">
+
+        <!-- TITLEBAR -->
+        <div class="titlebar">
+          <div class="traffic-lights">
+            <div class="tl tl-red"></div>
+            <div class="tl tl-yellow"></div>
+            <div class="tl tl-green"></div>
+          </div>
+          <div class="titlebar-title" id="win-title">Intensivo 1X1 — Formulário de Qualificação</div>
+          <div class="titlebar-spacer"></div>
+        </div>
+
+        <!-- BODY -->
+        <div class="window-body">
+
+          <!-- HEADER -->
+          <div class="win-header">
+            <div class="section-label">Intensivo 1X1</div>
+            <div class="win-headline">Método pra repetir<br>o que já funciona.</div>
+            <div class="win-sub">Uma sessão individual comigo. Você sai sabendo exatamente o que ajustar, quais indicadores acompanhar e como tomar decisão em cima do que já está funcionando no seu negócio.<br><br>Eu também avalio o marketing da sua empresa como um todo. Se o seu momento pede tráfego pago, você sai sabendo o investimento mínimo necessário e o que esperar do resultado.<br><br>Esse formulário existe pra entender se esse é o seu momento. Responda com honestidade, perguntas que não batem com o perfil do Intensivo 1X1 travam a candidatura automaticamente.</div>
+          </div>
+
+          <!-- PROGRESS -->
+          <div class="progress-row">
+            <span class="progress-tag" id="step-label">Etapa 1 de 6</span>
+            <span class="progress-pct" id="pct-label">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+
+          <!-- ── STEP 1 ── -->
+          <div class="step active" id="step-1">
+            <div class="step-label">01 · Momento atual</div>
+            <div class="step-question">Você já vende um produto ou serviço hoje?</div>
+            <div class="step-hint">Quero entender se já existe operação rodando antes de falar de método.</div>
+            <div class="options" id="opts-vende">
+              <div class="opt" onclick="pick(this,'vende','sim')">
+                <div class="opt-indicator"></div><span>Sim, já vendo</span>
+              </div>
+              <div class="opt" onclick="pick(this,'vende','nao')">
+                <div class="opt-indicator"></div><span>Ainda estou montando</span>
+              </div>
+            </div>
+            <span class="err" id="err-vende">Selecione uma opção.</span>
+            <div class="nav">
+              <button class="btn-next" onclick="goStep1()">Continuar</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 2 ── -->
+          <div class="step" id="step-2">
+            <div class="step-label">02 · Vendas pelas redes</div>
+            <div class="step-question">Você já fechou pelo menos um cliente pelas redes sociais?</div>
+            <div class="step-hint">O Intensivo trabalha em cima do que já vem funcionando, não do que ainda está por testar.</div>
+            <div class="options" id="opts-fechou">
+              <div class="opt" onclick="pick(this,'fechou','sim')">
+                <div class="opt-indicator"></div><span>Sim</span>
+              </div>
+              <div class="opt" onclick="pick(this,'fechou','nao')">
+                <div class="opt-indicator"></div><span>Ainda não</span>
+              </div>
+            </div>
+            <span class="err" id="err-fechou">Selecione uma opção.</span>
+            <div class="nav">
+              <button class="btn-back" onclick="goTo(1)">←</button>
+              <button class="btn-next" onclick="goStep2()">Continuar</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 3 ── -->
+          <div class="step" id="step-3">
+            <div class="step-label">03 · Seu momento</div>
+            <div class="step-question">Como você descreveria o seu momento?</div>
+            <div class="options" id="opts-momento">
+              <div class="opt" onclick="pick(this,'momento','forte')">
+                <div class="opt-indicator"></div><span>Fecho cliente, mas não sei repetir o que deu certo</span>
+              </div>
+              <div class="opt" onclick="pick(this,'momento','estagnou')">
+                <div class="opt-indicator"></div><span>Já fechei alguns e sinto que estagnei</span>
+              </div>
+              <div class="opt" onclick="pick(this,'momento','zero')">
+                <div class="opt-indicator"></div><span>Ainda não tenho resultado nenhum</span>
+              </div>
+            </div>
+            <span class="err" id="err-momento">Selecione uma opção.</span>
+            <div class="nav">
+              <button class="btn-back" onclick="goTo(2)">←</button>
+              <button class="btn-next" onclick="goStep3()">Continuar</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 4 ── -->
+          <div class="step" id="step-4">
+            <div class="step-label">04 · Objetivo do Intensivo</div>
+
+            <div class="spotlight">
+              <div class="spotlight-search">
+                <span class="spotlight-icon">🔍</span>
+                <span class="spotlight-query">O que você quer sair levando do Intensivo?</span>
+              </div>
+            </div>
+
+            <div class="step-hint">O Intensivo 1X1 entrega direção e método. A execução continua com você.</div>
+            <div class="options" id="opts-objetivo">
+              <div class="opt" onclick="pick(this,'objetivo','metodo')">
+                <div class="opt-indicator"></div><span>Um método pra repetir o que já funciona</span>
+              </div>
+              <div class="opt" onclick="pick(this,'objetivo','executor')">
+                <div class="opt-indicator"></div><span>Alguém pra executar meu conteúdo por mim</span>
+              </div>
+            </div>
+            <span class="err" id="err-objetivo">Selecione uma opção.</span>
+            <div class="nav">
+              <button class="btn-back" onclick="goTo(3)">←</button>
+              <button class="btn-next" onclick="goStep4()">Continuar</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 5 ── -->
+          <div class="step" id="step-5">
+            <div class="step-label">05 · Investimento</div>
+            <div class="step-question">O Intensivo 1X1 é R$1.000. Você sai com direção clara pra decidir e agir sozinha no marketing do seu negócio. Você está pronta pra investir agora?</div>
+            <div class="options" id="opts-invest">
+              <div class="opt" onclick="pick(this,'invest','sim')">
+                <div class="opt-indicator"></div><span>Sim</span>
+              </div>
+              <div class="opt" onclick="pick(this,'invest','nao')">
+                <div class="opt-indicator"></div><span>Ainda não consigo</span>
+              </div>
+            </div>
+            <span class="err" id="err-invest">Selecione uma opção.</span>
+            <div class="nav">
+              <button class="btn-back" onclick="goTo(4)">←</button>
+              <button class="btn-next" onclick="goStep5()">Continuar</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 6 ── -->
+          <div class="step" id="step-6">
+            <div class="step-label">06 · Contato</div>
+            <div class="step-question">Quem é você?</div>
+            <div class="step-hint">Só pra quem passou. Preciso desses dados pra confirmar o seu Intensivo.</div>
+            <div class="fields">
+              <div class="field">
+                <label>Nome completo</label>
+                <input type="text" id="nome" placeholder="Seu nome completo" />
+                <span class="err" id="err-nome">Informe seu nome.</span>
+              </div>
+              <div class="field">
+                <label>@ do Instagram</label>
+                <input type="text" id="arroba" placeholder="@seuperfil" />
+                <span class="err" id="err-arroba">Informe o @ do seu Instagram.</span>
+              </div>
+            </div>
+            <div class="nav">
+              <button class="btn-back" onclick="goTo(5)">←</button>
+              <button class="btn-next" onclick="goStep6()">Enviar candidatura</button>
+            </div>
+          </div>
+
+          <!-- ── SCREEN ELIMINADO — GENÉRICO ── -->
+          <div class="screen" id="scr-out-base">
+            <div class="notif" style="margin-top:8px;">
+              <div class="notif-icon">📋</div>
+              <div class="notif-content">
+                <div class="notif-app">Sistema · Qualificação</div>
+                <div class="notif-title">Ainda não é o momento pro Intensivo.</div>
+                <div class="notif-body">Seu momento pede outra base antes da sessão 1:1.</div>
+              </div>
+              <div class="notif-time">agora mesmo</div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-title">Esse Intensivo ainda<br>não é pra agora.</div>
+              <p class="screen-text">O Intensivo 1X1 funciona pra quem já vende e já fechou cliente pelas redes, porque o trabalho é destravar o que já existe. Continue construindo essa base e volte quando fizer sentido.</p>
+            </div>
+          </div>
+
+          <!-- ── SCREEN ELIMINADO — EXPECTATIVA ── -->
+          <div class="screen" id="scr-out-execucao">
+            <div class="notif" style="margin-top:8px;">
+              <div class="notif-icon">📋</div>
+              <div class="notif-content">
+                <div class="notif-app">Sistema · Qualificação</div>
+                <div class="notif-title">Perfil não compatível com o Intensivo.</div>
+                <div class="notif-body">O Intensivo entrega direção e método, não execução.</div>
+              </div>
+              <div class="notif-time">agora mesmo</div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-title">O Intensivo entrega<br>método, não execução.</div>
+              <p class="screen-text">No Intensivo 1X1 você sai com direção e método pra decidir sozinha. A execução continua com você. Se o que você precisa agora é alguém pra tocar o conteúdo por você, essa sessão não resolve o seu momento.</p>
+            </div>
+          </div>
+
+          <!-- ── SCREEN ELIMINADO — INVESTIMENTO ── -->
+          <div class="screen" id="scr-out-invest">
+            <div class="notif" style="margin-top:8px;">
+              <div class="notif-icon">📋</div>
+              <div class="notif-content">
+                <div class="notif-app">Sistema · Qualificação</div>
+                <div class="notif-title">Momento de investimento não bate.</div>
+                <div class="notif-body">O Intensivo pede decisão de investir agora.</div>
+              </div>
+              <div class="notif-time">agora mesmo</div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-title">Ainda não é hora<br>de investir nisso.</div>
+              <p class="screen-text">O Intensivo 1X1 pede decisão de investimento no momento da inscrição, porque a sessão já entrega direção pra você agir. Quando fizer sentido investir, o formulário continua aberto.</p>
+            </div>
+          </div>
+
+          <!-- ── SCREEN SUCESSO ── -->
+          <div class="screen" id="scr-ok">
+            <div class="notif notif-animate" style="margin-top:8px;">
+              <div class="notif-icon">🚀</div>
+              <div class="notif-content">
+                <div class="notif-app">Intensivo 1X1</div>
+                <div class="notif-title">Candidatura recebida.</div>
+                <div class="notif-body">Seu perfil tem o que o Intensivo pede. Entro em contato em breve.</div>
+              </div>
+              <div class="notif-time">agora mesmo</div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-title">Respostas enviadas.</div>
+              <p class="screen-text">Vou analisar suas respostas e te chamo no Instagram pra fechar o pagamento e agendar o seu Intensivo 1X1.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="caption">marimanfredinny.com</div>
+    </div>
+  </div>
+
+<script>
+  const TOTAL = 6;
+  let cur = 1;
+  const A = {};
+
+  function updateWinTitle() {
+    const title = document.getElementById('win-title');
+    if (title) title.style.visibility = cur === 1 ? 'visible' : 'hidden';
+    const header = document.querySelector('.win-header');
+    if (header) header.style.display = cur === 1 ? '' : 'none';
+  }
+
+  function updateProgress() {
+    const pct = Math.round(((cur - 1) / TOTAL) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('step-label').textContent = 'Etapa ' + cur + ' de ' + TOTAL;
+    document.getElementById('pct-label').textContent = pct + '%';
+  }
+
+  function goTo(n) {
+    document.getElementById('step-' + cur).classList.remove('active');
+    cur = n;
+    document.getElementById('step-' + cur).classList.add('active');
+    updateProgress();
+    updateWinTitle();
+    scrollToTop();
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showScreen(id) {
+    document.getElementById('step-' + cur).classList.remove('active');
+    document.getElementById(id).classList.add('active');
+    document.getElementById('progress-fill').style.width = '100%';
+    document.getElementById('step-label').textContent = id === 'scr-ok' ? 'Concluído.' : 'Resultado.';
+    document.getElementById('pct-label').textContent = id === 'scr-ok' ? '100%' : '';
+    scrollToTop();
+    if (id === 'scr-ok') {
+      send();
+      const notif = document.querySelector('#scr-ok .notif');
+      if (notif) {
+        notif.classList.remove('notif-animate');
+        void notif.offsetWidth;
+        notif.classList.add('notif-animate');
+      }
+    }
+  }
+
+  function pick(el, key, val) {
+    el.closest('.options').querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    A[key] = val;
+  }
+
+  function showErr(id) { document.getElementById(id).classList.add('on'); }
+  function hideErr(id) { document.getElementById(id).classList.remove('on'); }
+  function v(id) { return (document.getElementById(id)?.value || '').trim(); }
+
+  function goStep1() {
+    if (!A.vende) { showErr('err-vende'); return; } hideErr('err-vende');
+    if (A.vende === 'nao') { showScreen('scr-out-base'); return; }
+    goTo(2);
+  }
+
+  function goStep2() {
+    if (!A.fechou) { showErr('err-fechou'); return; } hideErr('err-fechou');
+    if (A.fechou === 'nao') { showScreen('scr-out-base'); return; }
+    goTo(3);
+  }
+
+  function goStep3() {
+    if (!A.momento) { showErr('err-momento'); return; } hideErr('err-momento');
+    if (A.momento === 'zero') { showScreen('scr-out-base'); return; }
+    goTo(4);
+  }
+
+  function goStep4() {
+    if (!A.objetivo) { showErr('err-objetivo'); return; } hideErr('err-objetivo');
+    if (A.objetivo === 'executor') { showScreen('scr-out-execucao'); return; }
+    goTo(5);
+  }
+
+  function goStep5() {
+    if (!A.invest) { showErr('err-invest'); return; } hideErr('err-invest');
+    if (A.invest === 'nao') { showScreen('scr-out-invest'); return; }
+    goTo(6);
+  }
+
+  function goStep6() {
+    const n = v('nome'), arr = v('arroba');
+    let ok = true;
+    if (!n) { showErr('err-nome'); ok=false; } else hideErr('err-nome');
+    if (!arr) { showErr('err-arroba'); ok=false; } else hideErr('err-arroba');
+    if (ok) { A.nome = n; A.arroba = arr; showScreen('scr-ok'); }
+  }
+
+  function restart() {
+    ['scr-out-base','scr-out-execucao','scr-out-invest','scr-ok'].forEach(id => document.getElementById(id).classList.remove('active'));
+    document.querySelectorAll('input, textarea, select').forEach(el => { el.value = ''; });
+    document.querySelectorAll('.opt.selected').forEach(el => el.classList.remove('selected'));
+    document.querySelectorAll('.err.on').forEach(el => el.classList.remove('on'));
+    Object.keys(A).forEach(k => delete A[k]);
+    cur = 1;
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-1').classList.add('active');
+    updateProgress();
+    updateWinTitle();
+    scrollToTop();
+  }
+
+  function send() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'enviou_formulario_intensivo',
+      momento: A.momento || '',
+      objetivo: A.objetivo || '',
+      arroba: A.arroba || '',
+    });
+
+    // Substitua pelo endpoint do Formspree: https://formspree.io/f/SEU_ID
+    const ENDPOINT = 'https://formspree.io/f/SEU_ID';
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        'Nome': A.nome,
+        '@ Instagram': A.arroba,
+        'Já vende': A.vende,
+        'Fechou cliente pelas redes': A.fechou,
+        'Momento': A.momento,
+        'Objetivo do Intensivo': A.objetivo,
+        'Pronta pra investir': A.invest,
+      }),
+    }).catch(() => {});
+  }
+
+  updateProgress();
+
+  function updateIOSTime() {
+    const el = document.getElementById('ios-time');
+    if (!el) return;
+    const now = new Date();
+    el.textContent = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
+  }
+  updateIOSTime();
+  setInterval(updateIOSTime, 10000);
+</script>
+</body>
+</html>
