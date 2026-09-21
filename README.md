@@ -13,6 +13,7 @@ Repositório central pros formulários de qualificação da Mariana Manfredinny.
 ## Formulários
 
 - `intensivo-1x1/` — formulário de qualificação pro Intensivo 1X1 (sessão individual, R$1.000).
+- `socia-de-lancamento/` — formulário de qualificação pra parceria de Sócia de Lançamento (fixo + porcentagem sobre o resultado).
 
 ## Como funciona um formulário novo
 
